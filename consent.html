@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet"> <!-- Importing Lora font -->
+<title>Consent Form</title>
+<style>
+    label, input, textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%; /* To ensure full width within the container */
+    }
+    form {
+        max-width: 600px; /* Sets the maximum width of the form */
+        margin: 0 auto;   /* Centers the form on the page */
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for better presentation */
+    }
+    body {
+        font-family: 'Lora', serif; /* Setting the font-family to Lora */
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .agree-btn {
+        background-color: #4CAF50;
+        color: white;
+    }
+     .disagree-btn {
+        background-color: #f44336;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <form action="https://oncosupportflaskerer-e2f1bb8de152.herokuapp.com/" method="GET">
+        <h1>OncoSupport HIPPA Release Form</h1>
+        <p>Please complete all sections of this HIPAA release form. If any sections are left blank, this form will be invalid and it will not be possible for your health information to be shared as requested.</p>
+
+        <h2>Section I</h2>
+        <label>I, <input type="text" name="name">, give my permission for <input type="text" name="permission_for"> to share the information listed in Section II of this document with the person(s) or organization(s) I have specified in Section IV of this document.</label>
+
+        <h2>Section II – Health Information</h2>
+        <p>I would like to give the above healthcare organization permission to:</p>
+        <label><input type="radio" name="info_choice" value="all_info"> Disclose my complete health record including, but not limited to, diagnoses, lab test results, treatment, and billing records for all conditions.</label>
+        <br>
+        <label><input type="radio" name="info_choice" value="specific_info"> Disclose my complete health record except for the following information:</label>
+        <ul>
+            <li><label><input type="checkbox" name="mental_records"> Mental health records</label></li>
+            <li><label><input type="checkbox" name="communicable_diseases"> Communicable diseases including, but not limited to, HIV and AIDS</label></li>
+            <li><label><input type="checkbox" name="abuse_treatment"> Alcohol/drug abuse treatment records</label></li>
+            <li><label><input type="checkbox" name="genetic_info"> Genetic information</label></li>
+            <li>Other (Specify): <input type="text" name="other_info"></li>
+        </ul>
+
+        <p>Form of Disclosure:</p>
+        <label><input type="radio" name="form_of_disclosure" value="electronic"> Electronic copy or access via a web-based portal</label>
+        <br>
+        <label><input type="radio" name="form_of_disclosure" value="hardcopy"> Hard copy</label>
+
+        <h2>Section III – Reason for Disclosure</h2>
+        <label>Please detail the reasons why information is being shared. If you are initiating the request for sharing information and do not wish to list the reasons for sharing, write ‘at my request’:</label>
+        <textarea name="reason_for_disclosure"></textarea>
+
+        <h2>Section III – Reason for Disclosure</h2>
+    <label for="reason">Please detail the reasons why information is being shared. If you are initiating the request for sharing information and do not wish to list the reasons for sharing, write ‘at my request’:</label>
+    <textarea id="reason" name="reason"></textarea>
+    
+    <h2>Section IV – Who Can Receive My Health Information</h2>
+    <label for="receiverName">Name:</label>
+    <input type="text" id="receiverName" name="receiverName">
+
+    <label for="organization">Organization:</label>
+    <input type="text" id="organization" name="organization">
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address">
+
+    <h2>Section V – Duration of Authorization</h2>
+    <label for="duration">This authorization to share my health information is valid:</label>
+    <select id="duration" name="duration">
+        <option value="fromTo">From ___ to ___</option>
+        <option value="allPeriods">All past, present, and future periods</option>
+        <option value="signatureToDate">The date of the signature in section VI until the following event:</option>
+    </select>
+    
+    <h2>Section VI – Signature</h2>
+    <p>
+        By signing below, I acknowledge and confirm the following:
+        <ul>
+            <li>I have read and understand this form and its contents.</li>
+            <li>I am authorizing the disclosure of my health information as detailed in this document.</li>
+        </ul>
+    </p>
+    
+    <label for="signature">Signature:</label>
+    <input type="text" id="signature" name="signature">
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date">
+    
+    <label for="relationship">If signing as a personal representative, describe the relationship to the individual:</label>
+    <input type="text" id="relationship" name="relationship">
+
+    <br>
+    <input type="submit" value="Agree">
+    <input type="button" value="Disagree" onclick="window.location.href='/disagree';">
+</form>
+
+</body>
+</html>
